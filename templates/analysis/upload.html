@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+
+<form action="{% url 'analysis:upload' %}" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <label for="id_content">파일명: </label>
+    <input type="file" name="content" id="id_content">
+    <button type="submit">분석하기</button>
+</form>
+
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<script src="{% static 'jquery-3.4.1.min.js' %}"></script>
+<h1>Result!</h1>
+<p>123</p>
+<script>
+    $.ajax({
+        type: "POST",
+        url: 'http://127.0.0.1:8668/analysis/',
+        data: {
+            'file': '{{ file }}',
+        },
+        dataType: 'json',
+        success: function(data){
+            $("p").text(JSON.stringify(data))
+        }
+    });
+</script>
+
+{% endblock %}
